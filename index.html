@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Museum</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" href="assets/img/favicon.ico">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css" rel="stylesheet">
+    <link rel="stylesheet" href="path-to-the-file/splide-core.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-container" >
+            <div class="logo"><a target="_blank" href="https://www.louvre.fr/en">
+                <svg class="icon" width="49" height="26" viewBox="0 0 49 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M49 26H0L24.5 0L49 26ZM13.3075 13.1309L16.6442 16.6702L19.981 13.1309L16.6442 9.58115L13.3075 13.1309ZM16.6442 25.0052L19.981 21.466L16.6442 17.9162L13.3075 21.466L16.6442 25.0052ZM32.4083 25.0052L35.745 21.466L32.4083 17.9162L29.019 21.466L32.4083 25.0052ZM28.4673 5.40314C28.4473 5.43762 28.4207 5.46941 28.3885 5.49738C27.3507 6.6178 26.2997 7.73822 25.2357 8.84817C25.1437 8.94241 25.2357 9.00524 25.2357 9.08901L28.3097 12.356L28.4542 12.4921L31.7909 8.96335L28.4673 5.40314ZM8.78847 25.0052L8.91984 24.8691L11.9938 21.6126C12.0428 21.5717 12.0702 21.5173 12.0702 21.4607C12.0702 21.4042 12.0428 21.3498 11.9938 21.3089C11.0611 20.3456 10.1547 19.3613 9.23512 18.3874L8.78847 17.9162L5.45174 21.466L8.78847 25.0052ZM17.2354 8.95288L20.5721 12.4921L20.6772 12.3979L23.8169 9.06806C23.922 8.95288 23.8169 8.89005 23.8169 8.80628L20.7429 5.56021L20.6115 5.42408L17.2354 8.95288ZM17.2354 17.3298L20.5721 20.8691L20.7429 20.7016C21.7413 19.6545 22.7528 18.6073 23.7643 17.4869C23.7926 17.4663 23.8152 17.4412 23.8307 17.4133C23.8461 17.3853 23.8541 17.3551 23.8541 17.3246C23.8541 17.2941 23.8461 17.2639 23.8307 17.2359C23.8152 17.208 23.7926 17.1829 23.7643 17.1623C22.8185 16.1675 21.8727 15.1728 20.9399 14.1675L20.5721 13.7906L17.2354 17.3298ZM32.9995 17.3298L36.3362 20.8691L39.6729 17.3298L36.3362 13.7906L32.9995 17.3298ZM28.4673 13.7801V13.8534L25.3013 17.2147C25.1962 17.3089 25.2357 17.3717 25.3013 17.4555L28.244 20.5969C28.3228 20.6911 28.4147 20.7853 28.5198 20.8901L31.8566 17.3508L28.4673 13.7801ZM12.7295 20.8482C12.7453 20.8175 12.7675 20.7892 12.7952 20.7644L15.9611 17.4031C16.0531 17.2984 15.9611 17.2461 15.9611 17.1623L12.8477 13.8953C12.8069 13.8484 12.7583 13.8061 12.7032 13.7696L9.37962 17.2984L12.7295 20.8482ZM32.3558 16.6597L35.6925 13.1204L32.3558 9.59162L29.019 13.1309L32.3558 16.6597ZM24.4737 8.28272L27.8105 4.74346L24.5263 1.27749H24.4606L21.2552 4.71204C21.2354 4.73712 21.2249 4.76616 21.2249 4.79581C21.2249 4.82546 21.2354 4.8545 21.2552 4.87958L24.4737 8.28272ZM24.4737 16.6597L27.8105 13.1204L24.5 9.58115L21.1633 13.1309L24.4737 16.6597ZM24.4737 25.0366L27.8105 21.4974L24.4737 17.9476L21.1633 21.466L24.4737 25.0366ZM40.2378 25.0366L43.5745 21.4974L40.2509 17.9791H40.1853L36.9668 21.3613C36.8617 21.4764 36.9668 21.5288 36.9668 21.6021L39.5941 24.4398L40.2378 25.0366ZM1.89169 25.2356H7.88204L4.91314 22.0942L1.89169 25.2356ZM41.1705 25.2356H47.1083L44.1394 22.0942L41.1705 25.2356ZM23.5542 25.2356L20.5721 22.0942L17.5901 25.2356H23.5542ZM33.3147 25.2356H39.2525L36.2836 22.0942L33.3147 25.2356ZM31.3968 25.2356L28.4279 22.0942L25.459 25.2356H31.3968ZM15.6327 25.2356L12.6638 22.0942L9.69491 25.2356H15.6327Z" fill="white"></path>
+                </svg>
+                <h1 class="header-logo-header">Louvre</h1>
+            </a></div>
+        
+
+        <nav class="headermenu">
+            <ul class="menuelements">
+                <li><a href="#visiting">Visiting</a></li>
+                <li><a href="#explore">Explore</a></li>
+                <li><a href="#video">Video</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#tickets">Tickets</a></li>
+                <li><a href="#contacts">Contacts</a></li>
+            </ul>
+        </nav>
+            <div class="closemenuburger"></div>
+            <div class="openmenuburger"></div>
+            <div class="smallmenu"></div>
+        </div>
+    </header>
+
+    <main>
+
+    <section class="welcomesection" id="welcome">
+          <div class="wrapper welcome-wrapper">
+            <div class="welcometext">
+                <h1> Welcome <br> to the Louvre</h1>
+                <h2 class="pwelcome">From the castle to the museum</h2>
+                <a href="http://surl.li/abbjd" class="welcomebutton">Discover the Louvre</a>
+            </div>
+  
+            <div class="welcome-slider">
+              <div class="slide-wrapper">
+                <img class="slide active" src="assets/img/1.jpg" alt="monalisa" />
+                <img class="slide" src="assets/img/2.jpg" alt="revolution" />
+                <img class="slide" src="assets/img/3.jpg" alt="girl" />
+                <img class="slide" src="assets/img/4.jpg" alt="war sea" />
+                <img class="slide" src="assets/img/5.jpg" alt="scientist" />
+              </div>
+  
+              <div class="sliderexp">
+                <div class="slider-num">
+                  <div class="slide-num slide-changing-num">01</div>
+                  <div class="slide-sep">|</div>
+                  <div class="slide-num">05</div>
+                </div>
+                <div class="carouselslider">
+                  <button type="button" class="square active"></button>
+                  <button type="button" class="square"></button>
+                  <button type="button" class="square"></button>
+                  <button type="button" class="square"></button>
+                  <button type="button" class="square"></button>
+                </div>
+
+                <div class="slider-arrows">
+                  <button type="button" class="slider-arrow slider-arrow-left"></button>
+                  <button type="button" class="slider-arrow slider-arrow-right"></button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+           
+      </section>
+
+      <section class="virtualtoursection" id="visiting">
+        <div class="virtualcontainer">
+              <h2 class="section-title" id="underline-title" style="color: #9D8665;border-bottom: solid 3px #710707;padding-bottom: 25px;" > Virtual tour</h2>
+              <div class="virtualtourcontainer">
+                  <div class="virtualtourboxes">
+      
+                      <a class="card" href="https://www.google.com/maps/@48.8606882,2.3356791,3a,90y,328.36h,87.55t/data=!3m7!1e1!3m5!1sAF1QipMZ9YgnArbwEIbTDANeSQYFu9gNqpW_2Sv8FBvY!2e10!3e12!7i4352!8i1815" target="_blank" style="display:block">
+                          <img class="vimg" src="assets/img/hall.jpg" alt="royalhall" width="440" height="285"/>
+                          <h3 class="virtualtourpicturetitle" id="underline-title1" >Royal Palace</h3>
+                          <p class="virtualtourpicturetitle1">360° Virtual Tour</p>
+                          <p class="virtualtourpicturetitle2">Google Street Panorama View</p>
+                      </a>
+      
+                      <a class="card" href="https://www.google.com/maps/@48.8563254,2.3352706,3a,75y,90t/data=!3m7!1e1!3m5!1sAF1QipNRj_CwP4coDMYdCHj6qHeBeJpI2VxU5BUsOX4F!2e10!3e12!7i11000!8i5500" target="_blank" style="display:block">
+                          <img class="vimg" src="assets/img/denon.jpg" alt="royalhall" width="440" height="285"/>
+                          <h3 class="virtualtourpicturetitle"  id="underline-title1">Denon Wing</h3>
+                          <p class="virtualtourpicturetitle1">360° Virtual Tour</p>
+                          <p class="virtualtourpicturetitle2">Google Street Panorama View</p>
+                      </a>
+      
+                      <a class="card" href="https://www.google.com/maps/@48.8601723,2.3395439,3a,88.4y,322.04h,84.25t/data=!3m7!1e1!3m5!1sAF1QipNMZGQuEA-pAUvIG_eP_2f3gWTKZEJ6XLVJ-Pgb!2e10!3e12!7i10240!8i5120" target="_blank" style="display:block">
+                          <img class="vimg" src="assets/img/rault.jpg" alt="royalhall" width="440" height="285"/>
+                          <h3 class="virtualtourpicturetitle"  id="underline-title1">Colonnade Perrault</h3>
+                          <p class="virtualtourpicturetitle1">360° Virtual Tour</p>
+                          <p class="virtualtourpicturetitle2">Google Street Panorama View</p>
+                      </a>
+      
+                      <a class="card" href="https://www.google.com/maps/@48.860183,2.3356156,3a,90y,177.69h,95.61t/data=!3m7!1e1!3m5!1sAF1QipP7uFZnTITRe-7AEVAgHAfqiCL-03gvBHcYWgF3!2e10!3e12!7i5472!8i2736" target="_blank" style="display:block">
+                          <img class="vimg" src="assets/img/greek.jpg" alt="royalhall" width="440" height="285"/>
+                          <h3 class="virtualtourpicturetitle"  id="underline-title1">Greek Hall</h3>
+                          <p class="virtualtourpicturetitle1">360° Virtual Tour</p>
+                          <p class="virtualtourpicturetitle2">Google Street Panorama View</p>
+                      </a>
+      
+                      <a class="card" href="https://www.google.com/maps/@48.8598788,2.3355157,3a,82.2y,7.53h,94t/data=!3m7!1e1!3m5!1sAF1QipO1wkUUbyzpPjj-OR0mR5etZJT-xl-40XK8rDQ3!2e10!3e12!7i10240!8i5120" target="_blank" style="display:block">
+                          <img class="vimg" src="assets/img/mona.jpg" alt="royalhall" width="440" height="285"/>
+                          <h3 class="virtualtourpicturetitle"  id="underline-title1">Mona Lisa</h3>
+                          <p class="virtualtourpicturetitle1">360° Virtual Tour</p>
+                          <p class="virtualtourpicturetitle2">Google Street Panorama View</p>
+                      </a>
+      
+                      <a class="card" href="https://www.google.com/maps/@48.8563254,2.3352706,3a,90y,21.26h,79.91t/data=!3m7!1e1!3m5!1sAF1QipPpGAowYatVyk3MMGnZAaQkYm2EUk-Dlca06SS5!2e10!3e12!7i11304!8i5652"  target="_blank" style="display:block">
+                          <img class="vimg" src="assets/img/night.jpg" alt="royalhall" width="440" height="285"/>
+                          <h3 class="virtualtourpicturetitle"  id="underline-title1">Night Palace</h3>
+                          <p class="virtualtourpicturetitle1">360° Virtual Tour</p>
+                          <p class="virtualtourpicturetitle2">Google Street Panorama View</p>
+                      </a>
+                    
+                  </div>
+              </div>
+            </div>
+      </section>
+
+      <section class="exploresection" id="explore">
+        <div class="explorecontainer">
+                    <div class="explorecontent">
+                      <h2 class="exploretitle">Picture explore</h2>
+                      <p class="pexplore" style="padding-top:60px">Las Meninas is a 1656 painting by Diego Velázquez, the leading artist of the Spanish Golden Age.</p><br>
+                      <p class="pexplore">It was cleaned in 1984 to remove a <span style="color:#9D8665">"yellow veil" </span> of dust that had gathered since the previous restoration in the 19th century.</p><br>
+                      <p class="pexplore" id="pnone">The cleaning provoked furious protests, not because the picture hadbeen damaged in any way, but because it looked different.</p><br>
+                     </div>
+
+                    <div class="explore-pictures">
+                        <div class="explore-picture">
+                          <img src="assets/img/after.jpg" alt="Las Meninas - painting by Diego Velázquez" />
+                        </div>
+                        <div class="explore-slider"></div>
+                        <div class="explore-picture explore-picture-overlay">
+                          <img src="assets/img/before.jpg" alt="Las Meninas - painting by Diego Velázquez" />
+                        </div>
+                      </div>
+             
+        </div>
+     </section>
+
+     <section class="videosection" id="video">
+        <div class="videosectioncontainer">
+            <div class="videotext">
+                <h2 class="sectionvideotitle" style="color: #9D8665"> Video journey</h2>
+                <p class="pvideo">Enter and visit one of the most famous museums in the world and enjoy<br> masterpieces such as Mona Lisa or Hammurabi's Code</p>
+            </div>
+
+            <!-- <div class="videoplayercontainer">
+                
+                <div class='video-container'>
+                    
+                  <video src="assets/video/video0.mp4" poster='assets/video/poster0.jpg'  class='video-player' id='video-player' preload='metadata'></video>
+                  
+                    
+                    <div class='video-hud'>
+                    <div class='video-hud__element video-hud__action video-hud__action_play' id='video-hud__action'></div>
+                    <div class="timediv">
+                    <div class='video-hud__element video-hud__curr-time' id='video-hud__curr-time'>00:00</div>
+                    <progress value='0' max='100' class='video-hud__element video-hud__progress-bar' id='video-hud__progress-bar'></progress>
+                    <div class='video-hud__element video-hud__duration' id='video-hud__duration'>00:00</div>
+                    </div>
+                    <div class="sounddiv">
+                    <div class='video-hud__element video-hud__mute video-hud__mute_false' id='video-hud__mute'></div>
+                    <input type='range' value='100' max='100' title='Громкость' class='video-hud__element video-hud__volume' id='video-hud__volume' style="background: linear-gradient(to right, rgb(113, 7, 7) 0%, rgb(113, 7, 7) 40%, rgb(196, 196, 196) 40%, rgb(196, 196, 196) 100%);">
+                    </div>
+                  
+
+                    <select title='Скорость' class='video-hud__element video-hud__speed' id='video-hud__speed'>
+                    <option value='25'>x0.25</option>
+                    <option value='50'>x0.50</option>
+                    <option value='75'>x0.75</option>
+                    <option value='100' selected>x1.00</option>
+                    <option value='125'>x1.25</option>
+                    <option value='150'>x1.50</option>
+                    <option value='175'>x1.75</option>
+                    <option value='200'>x2.00</option>
+                    </select>
+
+                    <button class="play-button video-hud__element play-fullscreen"></button>
+
+                    </div>
+                    </div> -->
+
+                    <div class="fivevideo">
+                    <video class="videoplayer-active" src="assets/video/video0.mp4" poster="assets/video/poster0.jpg" controls></video>
+                    <video class="videoplayer" src="assets/video/video1.mp4" poster="assets/video/poster1.jpg" style="padding-left: 100px" controls></video>
+                    <video class="videoplayer" src="assets/video/video2.mp4" poster="assets/video/poster2.jpg" controls></video>
+                    <video class="videoplayer" src="assets/video/video3.mp4" poster="assets/video/poster3.jpg" controls></video>
+                    <!-- <video class="videoplayer" src="assets/video/video4.mp4" poster="assets/video/poster4.jpg" controls></video>  -->
+                    </div>
+
+                    <div class="videoslider">
+                      <div class="videoframe video-1">
+                        <img class="videoframe-media videoframe-poster" src="assets/video/poster1.jpg" alt="video" id="aWmJ5DgyWPI" />
+                        <p class="numberstext">Exposition - Le Corps et l’Ame. De Dona...</p>
+                        <button class="videoframe-button"></button>
+                      </div>
+                      <div class="videoframe video-2">
+                        <img class="videoframe-media videoframe-poster" src="assets/video/poster2.jpg" alt="video" id="Vi5D6FKhRmo" />
+                        <p class="numberstext">Au Louvre ! La Venus de Milo</p>
+                        <button class="videoframe-button"></button>
+                      </div>
+                      <div class="videoframe video-3">
+                        <img class="videoframe-media videoframe-poster" src="assets/video/poster3.jpg" alt="video" id="NOhDysLnTvY" />
+                        <p class="numberstext">Promenade dans les collections mesop...</p>
+                        <button class="videoframe-button"></button>
+                      </div>
+                      <div class="videoframe video-4">
+                        <img class="videoframe-media videoframe-poster" src="assets/video/poster4.jpg" alt="video" id="2OR0OCr6uRE" />
+                        <p class="numberstext">Petits contes de Printemps - La ruse du</p>
+                        <button class="videoframe-button"></button>
+                      </div>
+                      <div class="videoframe video-0">
+                        <img class="videoframe-media videoframe-poster" src="assets/video/poster0.jpg" alt="video" id="zp1BXPX8jcU" />
+                        <p class="numberstext">Welcome to the Louvre - Bienvenue au</p>
+                        <button class="videoframe-button"></button>
+                      </div>
+                    </div>
+          
+                   
+                      <!-- Next and previous buttons -->
+                      <!-- <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                      <a class="next" onclick="plusSlides(1)">&#10095;</a> -->
+                    </div>
+                    <br>
+                    
+                    <!-- The dots/circles
+                    <div style="text-align:center">
+                      <span class="videoslider-dot" onclick="currentSlide(1)"></span>
+                      <span class="videoslider-dot" onclick="currentSlide(2)"></span>
+                      <span class="videoslider-dot" onclick="currentSlide(3)"></span>
+                      <span class="videoslider-dot" onclick="currentSlide(4)"></span>
+                      <span class="videoslider-dot" onclick="currentSlide(5)"></span>
+                    </div> -->
+<!-- 
+                    <div class="videoslider-pagination">
+                      <button class="videoslider-arrow prev"></button>
+                      <div class="videoslider-dots">
+                        <button class="videoslider-dot"></button>
+                        <button class="videoslider-dot"></button>
+                        <button class="videoslider-dot"></button>
+                        <button class="videoslider-dot"></button>
+                        <button class="videoslider-dot"></button>
+                      </div>
+                      <button class="videoslider-arrow next"></button>
+                    </div> -->
+        </div>
+     </section>
+
+
+     <section class="dark-section gallery-section" id="gallery">
+        <div class="wrapper">
+          <h2 class="dark-section-title gallery-title">Art gallery</h2>
+
+          <div class="gallery-container">
+            <div class="gallery-inner-container"></div>
+            <div class="gallery-gradient"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="ticketssection" id="tickets">
+        <div class="container" class="tcontainer">
+            <h2 class="section-title" id="underline-title" style="color: #9D8665" > Buy tickets</h2>
+    
+            <div class="ticketssection1">
+    
+               <div><img src="assets/img/tickets.jpg" alt="picture" class="imgtickets"></div> 
+    
+               <div class="radio" >
+                <div class="ticketstext">Ticket Type</div>
+                <label class="type-label">
+                  <input class="type-radio" type="radio" checked="checked" name="type" value="1" />
+                  <span class="checkmark"></span>Permanent exhibition
+                </label>
+                <label class="type-label">
+                  <input class="type-radio" type="radio" name="type" value="2" />
+                  <span class="checkmark"></span>Temporary exhibition
+                </label>
+                <label class="type-label">
+                  <input class="type-radio" type="radio" name="type" value="3" />
+                  <span class="checkmark"></span>Combined Admission
+                </label>
+            </div>
+    
+            <div class="ticketssection2">
+                <div class="amount">
+                    <p class="ticketstext">Amount</p>
+                    <p class="age">Basic 18+</p>
+                    <div class="amount-wrapper">
+                      <button class="amount-button" type="button" onclick="this.nextElementSibling.stepDown()">&#8722;</button>
+                      <input type="number" min="0" max="100" value="1" readonly class="number">
+                      <button class="amount-button" type="button" onclick="this.previousElementSibling.stepUp()">+</button>
+                    </div>
+      
+                    <p class="age">Senior 65+</p>
+                    <div class="amount-wrapper">
+                      <button class="amount-button" type="button" onclick="this.nextElementSibling.stepDown()">&#8722;</button>
+                      <input type="number" min="0" max="100" value="1" readonly class="number">
+                      <button class="amount-button" type="button" onclick="this.previousElementSibling.stepUp()">+</button>
+                    </div>
+      
+                    <p class="total">Total €<span>0</span></p>
+                    <button class="buy-button">Buy Now</button>
+            </div>
+    
+        </div>
+    </div>
+    </section>
+
+    <div id="parallax">
+      <div class="parallaximage">
+      </div>
+  </div>
+
+  <section class="contactssection" id="contacts">
+    <div class="container">
+        <h2 class="section-title" id="underline-title" style="color: #9D8665" > Contacts</h2>
+        <div class="contactssectioncontainer">
+            <div class="contactstext">
+                <h3 class="contactstitle"> Palais Royal<br> Musee du Louvre</h3>
+                 <ul style="padding-left: 0px">
+                <li id="pcontacts" style="padding-top: 50px"> address: 75001 Paris, France </li>
+                <li id="pcontacts"> phone: +33(0) 1 40 20 50 50  </li>
+                <li id="pcontacts"> mail: info@louvre.fr </li>
+            </ul>
+            </div>
+            
+            <div class="contactsmap">
+              
+              <div id='map'></div>
+               
+        </div>
+      </div>
+</div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="topfooter" id="underline-footer" style="padding:25px">
+    <div class="logoandtext">
+    <a href="https://www.louvre.fr/en" target="_blank" class="header-footer-logo">
+        <svg width="49" height="26" viewBox="0 0 49 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M49 26H0L24.5 0L49 26ZM13.3075 13.1309L16.6442 16.6702L19.981 13.1309L16.6442 9.58115L13.3075 13.1309ZM16.6442 25.0052L19.981 21.466L16.6442 17.9162L13.3075 21.466L16.6442 25.0052ZM32.4083 25.0052L35.745 21.466L32.4083 17.9162L29.019 21.466L32.4083 25.0052ZM28.4673 5.40314C28.4473 5.43762 28.4207 5.46941 28.3885 5.49738C27.3507 6.6178 26.2997 7.73822 25.2357 8.84817C25.1437 8.94241 25.2357 9.00524 25.2357 9.08901L28.3097 12.356L28.4542 12.4921L31.7909 8.96335L28.4673 5.40314ZM8.78847 25.0052L8.91984 24.8691L11.9938 21.6126C12.0428 21.5717 12.0702 21.5173 12.0702 21.4607C12.0702 21.4042 12.0428 21.3498 11.9938 21.3089C11.0611 20.3456 10.1547 19.3613 9.23512 18.3874L8.78847 17.9162L5.45174 21.466L8.78847 25.0052ZM17.2354 8.95288L20.5721 12.4921L20.6772 12.3979L23.8169 9.06806C23.922 8.95288 23.8169 8.89005 23.8169 8.80628L20.7429 5.56021L20.6115 5.42408L17.2354 8.95288ZM17.2354 17.3298L20.5721 20.8691L20.7429 20.7016C21.7413 19.6545 22.7528 18.6073 23.7643 17.4869C23.7926 17.4663 23.8152 17.4412 23.8307 17.4133C23.8461 17.3853 23.8541 17.3551 23.8541 17.3246C23.8541 17.2941 23.8461 17.2639 23.8307 17.2359C23.8152 17.208 23.7926 17.1829 23.7643 17.1623C22.8185 16.1675 21.8727 15.1728 20.9399 14.1675L20.5721 13.7906L17.2354 17.3298ZM32.9995 17.3298L36.3362 20.8691L39.6729 17.3298L36.3362 13.7906L32.9995 17.3298ZM28.4673 13.7801V13.8534L25.3013 17.2147C25.1962 17.3089 25.2357 17.3717 25.3013 17.4555L28.244 20.5969C28.3228 20.6911 28.4147 20.7853 28.5198 20.8901L31.8566 17.3508L28.4673 13.7801ZM12.7295 20.8482C12.7453 20.8175 12.7675 20.7892 12.7952 20.7644L15.9611 17.4031C16.0531 17.2984 15.9611 17.2461 15.9611 17.1623L12.8477 13.8953C12.8069 13.8484 12.7583 13.8061 12.7032 13.7696L9.37962 17.2984L12.7295 20.8482ZM32.3558 16.6597L35.6925 13.1204L32.3558 9.59162L29.019 13.1309L32.3558 16.6597ZM24.4737 8.28272L27.8105 4.74346L24.5263 1.27749H24.4606L21.2552 4.71204C21.2354 4.73712 21.2249 4.76616 21.2249 4.79581C21.2249 4.82546 21.2354 4.8545 21.2552 4.87958L24.4737 8.28272ZM24.4737 16.6597L27.8105 13.1204L24.5 9.58115L21.1633 13.1309L24.4737 16.6597ZM24.4737 25.0366L27.8105 21.4974L24.4737 17.9476L21.1633 21.466L24.4737 25.0366ZM40.2378 25.0366L43.5745 21.4974L40.2509 17.9791H40.1853L36.9668 21.3613C36.8617 21.4764 36.9668 21.5288 36.9668 21.6021L39.5941 24.4398L40.2378 25.0366ZM1.89169 25.2356H7.88204L4.91314 22.0942L1.89169 25.2356ZM41.1705 25.2356H47.1083L44.1394 22.0942L41.1705 25.2356ZM23.5542 25.2356L20.5721 22.0942L17.5901 25.2356H23.5542ZM33.3147 25.2356H39.2525L36.2836 22.0942L33.3147 25.2356ZM31.3968 25.2356L28.4279 22.0942L25.459 25.2356H31.3968ZM15.6327 25.2356L12.6638 22.0942L9.69491 25.2356H15.6327Z"
+                fill='white' />
+        </svg>
+        <div id="headerfooter">Louvre</div>
+      </a>
+    </div>
+
+    <nav class="menufooter">
+        <ul class="menuelementsfooter">
+            <li><a href="#visiting">Visiting</a></li>
+            <li><a href="#explore">Explore</a></li>
+            <li><a href="#video">Video</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#tickets">Tickets</a></li>
+            <li><a href="#contacts">Contacts</a></li>
+
+        </ul>
+    </nav>
+
+    <ul class="social-links">
+        <li><a class="youtube" href="https://www.youtube.com/user/louvre" target="_blank" >  <img src="./assets/svg/youtube.svg" alt="youtube" class="youtube">
+             </a></li>
+        <li><a class="instagram" href="https://www.instagram.com/museelouvre/" target="_blank"> <img src="./assets/svg/inst.svg" alt="instagram" class="instagram"></a></li>
+        <li><a class="facebook" href="https://www.facebook.com/museedulouvre" target="_blank"> <img src="./assets/svg/face.svg" alt="facebook" class="facebook"></a></li>
+        <li><a class="twitter" href="http://twitter.com/museelouvre" target="_blank"><img src="./assets/svg/twi.svg" alt="twitter" class="twitter"></a></li>
+        <li><a class="pinterest" href="https://www.pinterest.fr/museedulouvre/" target="_blank"><img src="./assets/svg/pint.svg" alt="pinterest" class="pinterest"></a></li>
+      </ul>
+  </div>
+
+  <div class="downfooter" style="padding:25px">
+      <div class="textdownfooter"> © 2021</div>
+      <a  href ="https://rs.school/" class="textdownfooter1">The Rolling Scopes School</a>
+      <a href="https://github.com/darnnng" class="textdownfooter1"> darnnng</a>
+
+  </div>
+</footer>
+
+     <script src="index.js"></script>
+
+</body>
+</html>
